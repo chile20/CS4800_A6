@@ -84,9 +84,13 @@ public class User implements IterableByUser {
     public void printChatHistory(User otherUser) {
         List<Message> history = server.getChatHistoryBetweenUsers(this, otherUser);
         System.out.println("Chat history between " + this.getName() + " and " + otherUser.getName() + ":");
-        for (Message message : history) {
-            System.out.println(message.getSender().getName() + " to " + message.getRecipient().getName() +
-                    " [" + message.getTimestamp() + "]: " + message.getContent());
+        if (history.isEmpty()) {
+            System.out.println("No messages to display.");
+        } else {
+            for (Message message : history) {
+                System.out.println(message.getSender().getName() + " to " + message.getRecipient().getName() +
+                        " [" + message.getTimestamp() + "]: " + message.getContent());
+            }
         }
     }
 

@@ -44,7 +44,7 @@ public class ChatServer {
             System.out.println("Message from " + sender.getName() + " to " + recipient.getName() + " blocked.");
         } else {
             chatHistory.addMessage(message);
-            System.out.println("Message from " + sender.getName() + " to " + recipient.getName() + ": " + message.getContent());
+            System.out.println(sender.getName() + " to " + recipient.getName() + ": " + message.getContent());
         }
     }
 
