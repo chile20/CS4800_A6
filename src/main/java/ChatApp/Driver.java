@@ -31,17 +31,17 @@ public class Driver {
         // Sending messages between users
         alice.sendMessageToMultiple(group, "Hello Bob and Charlie!");
         bob.sendMessage(alice, "Hi Alice");
-//        alice.sendMessage(bob, "Hello Bob!");
-//        alice.sendMessage(bob, "Hello again Bob!");
+        alice.sendMessage(bob, "Hello Bob!");
+        alice.sendMessage(bob, "Hello again Bob!");
 
         // Undo a message
-//        alice.undoLastMessage();
-//        alice.undoLastMessage();
+        alice.undoLastMessage();
+        alice.undoLastMessage();
 
         // Print chat history of users
-//        alice.printChatHistory(bob);
-//        bob.printChatHistory(alice);
-//        charlie.printChatHistory(alice);
+        alice.printChatHistory(bob);
+        bob.printChatHistory(alice);
+        charlie.printChatHistory(alice);
 
         // Iterating messages
         Iterator<Message> user1Iterator = alice.iterator(bob);
