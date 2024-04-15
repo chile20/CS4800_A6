@@ -1,15 +1,13 @@
 /*
 Assignment6_ChatApp
-File name: SearchMessagesByUser.java
 Author: Chi Le
+File name: SearchMessagesByUser.java
+Description: Provides an iterator to iterate over messages related to a specific user,
 */
 
 package ChatApp;
 
-import java.util.Iterator;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class SearchMessagesByUser implements Iterator<Message> {
     private final List<Message> messages;
@@ -17,6 +15,12 @@ public class SearchMessagesByUser implements Iterator<Message> {
     private final Iterator<Message> iterator;
     private Message nextMessage;
 
+    /**
+     * Constructs a SearchMessagesByUser with a list of messages and a specific user.
+     *
+     * @param messages A list of messages to search through.
+     * @param user     The user whose messages are to be filtered.
+     */
     public SearchMessagesByUser(List<Message> messages, User user) {
         this.messages = messages;
         this.user = user;
@@ -24,6 +28,9 @@ public class SearchMessagesByUser implements Iterator<Message> {
         advance();
     }
 
+    /**
+     * Advances the iterator to the next relevant message that involves the user.
+     */
     private void advance() {
         while (iterator.hasNext()) {
             Message m = iterator.next();

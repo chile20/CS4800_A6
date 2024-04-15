@@ -1,7 +1,7 @@
 /*
 Assignment6_ChatApp
-File name: MessageMemento.java
 Author: Chi Le
+File name: MessageMemento.java
 */
 
 package ChatApp;

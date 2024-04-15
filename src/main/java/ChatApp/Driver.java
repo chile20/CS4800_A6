@@ -30,12 +30,12 @@ public class Driver {
         bob.printChatHistory(alice);
         charlie.printChatHistory(alice);
 
-//        Iterator<Message> user1Iterator = alice.iterator(bob);
-//        System.out.println("Messages sent or received by Alice:");
-//        while (user1Iterator.hasNext()) {
-//            Message message = user1Iterator.next();
-//            System.out.println(message.getContent());
-//        }
+        Iterator<Message> user1Iterator = alice.iterator(bob);
+        System.out.println("Messages sent or received by Alice:");
+        while (user1Iterator.hasNext()) {
+            Message message = user1Iterator.next();
+            System.out.println(message.getContent());
+        }
     }
 }
 
