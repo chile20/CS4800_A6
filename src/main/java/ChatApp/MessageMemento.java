@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageMemento {
-    private final List<Message> messages;
+    private Message messageMemento;
 
-    public MessageMemento(List<Message> messages) {
-        this.messages = new ArrayList<>(messages); // Deep copy to ensure the state is preserved
+    public MessageMemento(Message message) {
+        this.messageMemento = message;
     }
 
-    List<Message> getState() {
-        return this.messages;
+    public Message getMessage() {
+        return messageMemento;
     }
 }
 

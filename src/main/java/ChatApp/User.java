@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class User implements IterableByUser {
     private String name;
     private ChatServer server;
-    private List<Message> sentMessages = new ArrayList<>();
+    private List<MessageMemento> sentMessages = new ArrayList<>();
+
     /**
      * Constructs a User with a specified name and associated chat server.
      *
@@ -27,6 +28,12 @@ public class User implements IterableByUser {
     }
 
     /**
+     * Save current state of sent messages
+     */
+    private void saveState(Message message) {
+        sentMessages.add(new MessageMemento(message));
+    }
+    /**
      * Sends a message to a single recipient.
      *
      * @param recipient The user receiving the message.
@@ -34,7 +41,7 @@ public class User implements IterableByUser {
      */
     public void sendMessage(User recipient, String content) {
         Message message = new Message(this, recipient, content);
-        sentMessages.add(message);
+        saveState(message);
         server.sendMessage(this, recipient, message);
     }
 
@@ -64,10 +71,8 @@ public class User implements IterableByUser {
      */
     public void undoLastMessage() {
         if (!sentMessages.isEmpty()) {
-            Message lastSentMessage = sentMessages.remove(sentMessages.size() - 1);
-            server.undoLastMessage(lastSentMessage);
-        } else {
-            System.out.println("No messages to undo.");
+            MessageMemento memento = sentMessages.remove(sentMessages.size() - 1);
+            server.undoLastMessage(memento.getMessage());
         }
     }
 

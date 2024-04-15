@@ -76,7 +76,6 @@ public class ChatServer {
      */
     public void undoLastMessage(Message message) {
         chatHistory.removeMessage(message);
-        System.out.println("Removed latest message from " + message.getSender().getName() + " to " + message.getRecipient().getName());
     }
 
     /**
