@@ -70,6 +70,14 @@ public class ChatServer {
     }
 
     /**
+     * Retuurn chat history.
+     *
+     * @return chat history.
+     */
+    public ChatHistory getChatHistory() {
+        return chatHistory;
+    }
+    /**
      * Removes the last sent message from the chat history.
      *
      * @param message The message to remove.
